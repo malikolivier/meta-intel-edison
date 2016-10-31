@@ -210,7 +210,8 @@ exit /b 0
 			exit /b 0
 		) else (
 			set /a currtime-= 1
-			timeout /t 1 /nobreak > nul
+			:: wait 1 second before proceeding to next command
+			waitfor foo /t 1 2> nul
 			if %currtime% gtr 0 goto:start_wait
 		)
 	) else (
